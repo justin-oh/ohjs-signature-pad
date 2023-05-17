@@ -1,0 +1,9 @@
+{
+  "name": "ohjs-signature-pad",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "ohjs-js": "justin-oh/ohjs-is",
+    "ohjs-script-loader": "justin-oh/ohjs-script-loader"
+  }
+}
