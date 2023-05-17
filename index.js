@@ -1,8 +1,7 @@
 import { isInstanceOf } from '../ohjs-is/index.js';
 import scriptLoader from '../ohjs-script-loader/index.js';
 
-const src = 
-'https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js';
+const src = 'https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js';
 
 function verify() {
     return window.hasOwnProperty('SignaturePad');
@@ -15,8 +14,7 @@ function verify() {
  * @param {HTMLCanvasElement} canvas
  * @param {HTMLInputElement} input
  *
- * @return {Promise} - Resolves with an object with 2 functions for 
-clearing and undoing.
+ * @return {Promise} - Resolves with an object with 2 functions for clearing and undoing.
  */
 export default function(canvas, input) {
     if (!isInstanceOf(canvas, HTMLCanvasElement)) {
@@ -86,7 +84,7 @@ export default function(canvas, input) {
             undo,
             isEmpty() {
                 return signaturePad.isEmpty();
-            }
+            },
         };
     });
 };
