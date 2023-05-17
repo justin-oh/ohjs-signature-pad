@@ -1,4 +1,4 @@
-import { isBoolean, isInstanceOf } from '../ohjs-is/index.js';
+import { isInstanceOf } from '../ohjs-is/index.js';
 import scriptLoader from '../ohjs-script-loader/index.js';
 
 const src = 'https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js';
@@ -16,7 +16,7 @@ function verify() {
  *
  * @return {Promise} - Resolves with an object with 2 functions for clearing and undoing.
  */
-export default function(canvas, input, clearOnResize = true) {
+export default function(canvas, input) {
     if (!isInstanceOf(canvas, HTMLCanvasElement)) {
         throw '`canvas` must be an HTMLCanvasElement';
     }
@@ -27,10 +27,6 @@ export default function(canvas, input, clearOnResize = true) {
 
     if ('hidden' !== input.type) {
         throw '`input` must be type=hidden';
-    }
-
-    if (!isBoolean(clearOnResize)) {
-        throw '`clearOnResize` must be true or false';
     }
 
     let signaturePad;
@@ -68,9 +64,7 @@ export default function(canvas, input, clearOnResize = true) {
         canvas.height = canvas.offsetHeight * ratio;
         canvas.getContext('2d').scale(ratio, ratio);
 
-        if (clearOnResize) {
-            clear();
-        }
+        clear();
     }
 
     return scriptLoader(src, verify).then(() => {
