@@ -1,4 +1,4 @@
-import { isInstanceOf } from '../ohjs-js/index.js';
+import { isInstanceOf } from '../ohjs-is/index.js';
 import scriptLoader from '../ohjs-script-loader/index.js';
 
 const src = 
